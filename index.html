@@ -25,7 +25,35 @@ label {
   top: 10px;
   right: 10px;
 }
+        
+  button {
+  font: 14px Helvetica Neue;
+  background-color: #222;
+  
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,.25), rgba(255,255,255,.11));
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgba(255,255,255,.25)),color-stop(1, rgba(255,255,255,.11)));
+  background-image: -webkit-linear-gradient(rgba(255,255,255,.25), rgba(255,255,255,.11));
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0 -1px 1px #222;
+  padding: 6px 10px 6px 10px;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #222;
+  margin: 0;
+  -moz-box-shadow: 0 1px 3px #999;
+  -webkit-box-shadow: 0 1px 3px #999;
+  
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  
+  
+}
+
 </style>
+<script src="d3.v3.min.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css">
 <title>Sortable Bar Chart</title> 
 </head>
@@ -42,11 +70,41 @@ label {
 	<!-- MAIN CONTENT -->
 	   <div>
 			<section id="main_content" class="inner" >       
-	
-				<label><input type="checkbox"> Sort values</label>
-				<script src="d3.v3.min.js"></script>
-				<script src="sortable_bar.js"></script>
-			
+				<label><input type="checkbox"> Sort values</label>		
+			  <div>
+  <div style="width:25%;float:left;display:inline-block" >
+  <textarea id="input_data" name="input_data" rows="24" cols="20">
+letter,frequency
+A,.08167
+B,.01492
+C,.02780
+D,.04253
+E,.12702
+F,.02288
+G,.02022
+H,.06094
+I,.06973
+J,.00153
+K,.00747
+L,.04025
+M,.02517
+N,.06749
+O,.07507
+P,.01929
+Q,.00098
+R,.05987
+S,.06333
+
+</textarea></br>
+<button id="render" class="name">render</button>
+</div>
+  <div>
+  <div id="sortedmap" style="width:72%;float:right;display:inline-block">
+    <script type="text/javascript" src="sortable_bar.js"></script></div>
+    </div>
+        </section>
+        </div>
+		
 			</section>
 		</div>
 

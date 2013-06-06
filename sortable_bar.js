@@ -1,6 +1,6 @@
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 420 - margin.top - margin.bottom;
 
 var formatPercent = d3.format(".0%");
 
@@ -19,13 +19,20 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(formatPercent);
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("data.tsv", function(error, data) {
+d3.select("#render").on("click", function() {
+
+    d3.selectAll("svg")
+       .remove(); 
+
+	var svg = d3.select("body").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");	  
+
+    txt_value = document.getElementById('input_data').value;
+    data = d3.csv.parse(txt_value);
 
   data.forEach(function(d) {
     d.frequency = +d.frequency;
